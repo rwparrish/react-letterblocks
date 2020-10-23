@@ -10,7 +10,7 @@ class App extends Component {
     textLength: null
   };
 
-  textLengthHandler = (event) => {
+  textHandler = (event) => {
     let textLength = {
       ...this.state.textLength
     };
@@ -51,7 +51,7 @@ class App extends Component {
 
     return (
       <div className="App">
-        <input type="text" onChange={(event) => this.textLengthHandler(event)} />
+        <input type="text" onChange={(event) => this.textHandler(event)} value={this.state.text} />
         <p>{this.state.textLength}</p>
         <ValidationComponent length={this.state.textLength}/>
         {charBlock}
