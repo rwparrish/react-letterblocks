@@ -1,5 +1,7 @@
 import './App.css';
 import { Component } from 'react';
+import ValidationComponent from './ValidationComponent/ValidationComponent';
+import CharComponent from './CharComponent/CharComponent';
 
 class App extends Component {
 
@@ -11,20 +13,48 @@ class App extends Component {
   textLengthHandler = (event) => {
     let textLength = {
       ...this.state.textLength
-    }
+    };
 
-    textLength = event.target.value.length
+    let text = {
+      ...this.state.text
+    };
+    
+    text = event.target.value;
+    textLength = event.target.value.length;
 
     this.setState({
-      textLength: textLength
+      textLength: textLength,
+      text: text
     })
   };
 
+  deleteHandler = (index) => {
+    const text = [...this.state.text.split("")]
+    text.splice(index, 1);
+    let newString = text.join("");
+
+    this.setState({
+      text: newString
+    })
+  }
+
   render() {
+
+    let textArray = this.state.text.split("");
+
+    let charBlock = textArray.map((char, i) => {
+      return <CharComponent 
+        key={i} 
+        char={char}
+        click={() => this.deleteHandler(i)}/>
+    });
+
     return (
       <div className="App">
-        <input type="text" onChange={this.textLengthHandler} />
-        <p>{this.state.textLength}</p>   
+        <input type="text" onChange={(event) => this.textLengthHandler(event)} />
+        <p>{this.state.textLength}</p>
+        <ValidationComponent length={this.state.textLength}/>
+        {charBlock}
       </div>
     );
   }
