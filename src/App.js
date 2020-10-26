@@ -1,7 +1,7 @@
 import './App.css';
 import { Component } from 'react';
-import ValidationComponent from './ValidationComponent/ValidationComponent';
-import CharComponent from './CharComponent/CharComponent';
+import Validation from './Validation/Validation';
+import Char from './Char/Char';
 
 class App extends Component {
 
@@ -43,7 +43,7 @@ class App extends Component {
     let textArray = this.state.text.split("");
 
     let charBlock = textArray.map((char, i) => {
-      return <CharComponent 
+      return <Char 
         key={i} 
         char={char}
         click={() => this.deleteHandler(i)}/>
@@ -53,7 +53,7 @@ class App extends Component {
       <div className="App">
         <input type="text" onChange={(event) => this.textHandler(event)} value={this.state.text} />
         <p>{this.state.textLength}</p>
-        <ValidationComponent length={this.state.textLength}/>
+        <Validation length={this.state.textLength}/>
         {charBlock}
       </div>
     );

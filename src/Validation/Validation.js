@@ -1,6 +1,6 @@
 import React from 'react'
 
-const ValidationComponent = (props) => {
+const Validation = (props) => {
 
     let  message = ' ';
 
@@ -17,4 +17,4 @@ const ValidationComponent = (props) => {
     )
 };
 
-export default ValidationComponent
+export default Validation

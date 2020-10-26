@@ -1,6 +1,6 @@
 import React from 'react'
 
-const CharComponent = (props) => {
+const Char = (props) => {
 
     const style = {
         display: 'inline-block',
@@ -17,4 +17,4 @@ const CharComponent = (props) => {
     );
 };
 
-export default CharComponent;
+export default Char;
