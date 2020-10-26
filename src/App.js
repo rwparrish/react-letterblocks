@@ -6,24 +6,18 @@ import Char from './Char/Char';
 class App extends Component {
 
   state = {
-    text: " ",
-    textLength: null
+    text: ""
   };
 
   textHandler = (event) => {
-    let textLength = {
-      ...this.state.textLength
-    };
 
     let text = {
       ...this.state.text
     };
     
     text = event.target.value;
-    textLength = event.target.value.length;
 
     this.setState({
-      textLength: textLength,
       text: text
     })
   };
@@ -52,8 +46,8 @@ class App extends Component {
     return (
       <div className="App">
         <input type="text" onChange={(event) => this.textHandler(event)} value={this.state.text} />
-        <p>{this.state.textLength}</p>
-        <Validation length={this.state.textLength}/>
+        <p>{this.state.text}</p>
+        <Validation length={this.state.text.length}/>
         {charBlock}
       </div>
     );
