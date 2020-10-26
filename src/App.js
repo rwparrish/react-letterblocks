@@ -26,16 +26,12 @@ class App extends Component {
     const text = [...this.state.text.split("")]
     text.splice(index, 1);
     let newString = text.join("");
-
     this.setState({
       text: newString
     })
   }
 
   render() {
-
-    
-
     const charBlock = this.state.text.split('').map((char, i) => {
       return <Char 
         key={i} 
