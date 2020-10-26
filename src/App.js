@@ -34,9 +34,9 @@ class App extends Component {
 
   render() {
 
-    let textArray = this.state.text.split("");
+    
 
-    let charBlock = textArray.map((char, i) => {
+    const charBlock = this.state.text.split('').map((char, i) => {
       return <Char 
         key={i} 
         char={char}
